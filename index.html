@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Islam Ayman - Full Stack Developer</title>
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/x-icon" href="Images/Islam.jpg" />
+
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Particles.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- ===== Navbar ===== -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar-container">
+        <div class="logo" onclick="scrollToTop()">
+          <span class="logo-brackets left">&lt;</span>
+          <span class="logo-text">Islam</span>
+          <span class="logo-brackets right">/&gt;</span>
+        </div>
+
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="icon-btn" id="themeToggle" aria-label="Toggle theme">
+            <svg
+              id="themeIcon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+              />
+            </svg>
+          </button>
+
+          <button class="lang-btn" id="langToggle">
+            <span id="langText">AR</span>
+          </button>
+
+          <button
+            class="mobile-menu-btn"
+            id="mobileMenuBtn"
+            aria-label="Toggle menu"
+          >
+            <span class="hamburger"></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== Mobile Menu ===== -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul class="mobile-nav-links">
+        <li>
+          <a href="#home" class="mobile-nav-link active"><span>Home</span></a>
+        </li>
+        <li>
+          <a href="#about" class="mobile-nav-link"><span>About</span></a>
+        </li>
+        <li>
+          <a href="#skills" class="mobile-nav-link"><span>Skills</span></a>
+        </li>
+        <li>
+          <a href="#projects" class="mobile-nav-link"><span>Projects</span></a>
+        </li>
+        <li>
+          <a href="#services" class="mobile-nav-link"><span>Services</span></a>
+        </li>
+        <li>
+          <a href="#contact" class="mobile-nav-link"><span>Contact</span></a>
+        </li>
+      </ul>
+      <div class="mobile-actions">
+        <button
+          class="icon-btn"
+          onclick="toggleTheme()"
+          aria-label="Toggle theme"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+            />
+          </svg>
+        </button>
+        <button class="lang-btn" onclick="toggleLanguage()">
+          <span id="mobileLangText">AR</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===== Hero Section ===== -->
+    <section class="hero" id="home">
+      <div class="particles-background" id="hero-particles"></div>
+
+      <div class="hero-container">
+        <!-- Floating Elements -->
+        <div class="floating-element element-1"></div>
+        <div class="floating-element element-2"></div>
+        <div class="floating-element element-3"></div>
+        <div class="floating-element element-4"></div>
+
+        <div class="hero-content">
+          <!-- Text Content -->
+          <div class="hero-text">
+            <!-- Animated Badge -->
+            <div class="hero-badge">
+              <span class="badge-dot"></span>
+              Available for new projects
+            </div>
+
+            <!-- Main Heading with Typing Animation -->
+            <h1 class="hero-title">
+              <span class="title-line"
+                >Hi, I'm <span class="name-gradient">Islam Ayman</span></span
+              >
+              <span class="title-line typing-container">
+                <span class="typing-text" id="typingText"></span>
+                <span class="typing-cursor">|</span>
+              </span>
+            </h1>
+
+            <!-- Description -->
+            <p class="hero-description">
+              Passionate about building
+              <span class="highlight">scalable, secure web applications</span>
+              using <span class="tech-highlight">.NET Core</span> and
+              <span class="tech-highlight">Angular</span>. Transforming ideas
+              into exceptional digital experiences.
+            </p>
+
+            <!-- Stats -->
+            <div class="hero-stats">
+              <div class="stat-item">
+                <div class="stat-number" data-count="20">0</div>
+                <div class="stat-label">Projects Done</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number" data-count="2">0</div>
+                <div class="stat-label">Years Experience</div>
+              </div>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="hero-buttons">
+              <button class="btn btn-primary" onclick="downloadCV()">
+                <span class="btn-content">
+                  <svg
+                    class="btn-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
+                  </svg>
+                  Open CV For Download
+                </span>
+                <div class="btn-shine"></div>
+              </button>
+
+              <button class="btn btn-secondary" onclick="scrollToProjects()">
+                <span class="btn-content">
+                  <svg
+                    class="btn-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                  View Projects
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Profile Image -->
+          <div class="hero-image">
+            <div class="image-container">
+              <div class="image-wrapper">
+                <img
+                  src="Images/Islam.jpg"
+                  alt="Islam Ayman - Full Stack Developer"
+                  class="profile-img"
+                />
+                <div class="image-glow"></div>
+                <div class="floating-tech">
+                  <span class="tech-dot dot-1">.NET</span>
+                  <span class="tech-dot dot-2">Angular</span>
+                  <span class="tech-dot dot-3">C#</span>
+                  <span class="tech-dot dot-4">SQL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== About Section ===== -->
+    <section class="about" id="about">
+      <div class="about-container">
+        <!-- Floating Background Elements -->
+        <div class="about-bg-element element-1"></div>
+        <div class="about-bg-element element-2"></div>
+        <div class="about-bg-element element-3"></div>
+
+        <div class="about-header">
+          <h2 class="about-title" data-i18n="aboutTitle">About Me</h2>
+          <div class="title-underline"></div>
+        </div>
+
+        <div class="about-content">
+          <!-- Main About Card -->
+          <div class="about-main-card glass-morphism">
+            <div class="about-avatar">
+              <div class="avatar-container">
+                <img
+                  src="Images/Islam.jpg"
+                  alt="Islam Ayman"
+                  class="avatar-img"
+                />
+                <div class="avatar-status"></div>
+              </div>
+            </div>
+
+            <div class="about-text">
+              <p class="about-intro" data-i18n="aboutIntro">
+                I'm Islam Ayman, a passionate and detail-oriented Full Stack Web
+                Developer specialized in building scalable, secure, and
+                business-driven web applications using .NET Core and Angular.
+              </p>
+              <p class="about-mission" data-i18n="aboutMission">
+                I focus on transforming complex business requirements into
+                efficient, modern, and maintainable software solutions that
+                optimize operations, reduce costs, and enhance user experience.
+              </p>
+            </div>
+          </div>
+
+          <!-- Business Value Section -->
+          <div class="value-section">
+            <h4 class="value-title" data-i18n="valueTitle">
+              🧠 How I Add Real Business Value
+            </h4>
+
+            <div class="value-cards">
+              <!-- Backend Card -->
+              <div class="value-card glass-morphism">
+                <div class="value-icon backend-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 17.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5zM21 7H3V5h18v2z"
+                    />
+                  </svg>
+                </div>
+                <h5 data-i18n="backendTitle">⚙️ Robust Backend Engineering</h5>
+                <ul class="value-list">
+                  <li data-i18n="backendPoint1">
+                    Expert in C#, .NET Core, Entity Framework Core, and
+                    SQL-based systems
+                  </li>
+                  <li data-i18n="backendPoint2">
+                    Experience building modular, maintainable, and
+                    high-performance RESTful APIs
+                  </li>
+                  <li data-i18n="backendPoint3">
+                    Skilled in API optimization, caching strategies, and
+                    performance tuning
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Frontend Card -->
+              <div class="value-card glass-morphism">
+                <div class="value-icon frontend-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                    />
+                  </svg>
+                </div>
+                <h5 data-i18n="frontendTitle">
+                  🌐 Modern & Scalable Frontend Development
+                </h5>
+                <ul class="value-list">
+                  <li data-i18n="frontendPoint1">
+                    Advanced in Angular, TypeScript, RxJS, and Angular Material
+                  </li>
+                  <li data-i18n="frontendPoint2">
+                    Building responsive, mobile-first, and interactive UI/UX
+                  </li>
+                  <li data-i18n="frontendPoint3">
+                    Strong grasp of design systems, accessibility, and frontend
+                    performance
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Security Card -->
+              <div class="value-card glass-morphism">
+                <div class="value-icon security-icon">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"
+                    />
+                  </svg>
+                </div>
+                <h5 data-i18n="securityTitle">
+                  🔐 Security & Business Integration
+                </h5>
+                <ul class="value-list">
+                  <li data-i18n="securityPoint1">
+                    Implemented secure JWT-based authentication, role-based
+                    authorization
+                  </li>
+                  <li data-i18n="securityPoint2">
+                    Integrated online payments (Stripe, PayPal), email
+                    notifications, and admin dashboards
+                  </li>
+                  <li data-i18n="securityPoint3">
+                    Follow clean architecture & repository patterns for
+                    long-term scalability
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills Section ===== -->
+    <section class="skills" id="skills">
+      <div class="skills-container">
+        <div class="skills-header">
+          <h2 class="skills-title" data-i18n="skillsTitle">Tech Stack</h2>
+          <div class="title-underline"></div>
+          <p class="skills-subtitle" data-i18n="skillsSubtitle">
+            Technologies I specialize in
+          </p>
+        </div>
+
+        <div class="skills-content">
+          <!-- Skills Grid Compact -->
+          <div class="skills-grid-compact">
+            <!-- Backend -->
+            <div class="skill-category">
+              <div class="category-header">
+                <div class="category-icon backend">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 17.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5zM21 7H3V5h18v2z"
+                    />
+                  </svg>
+                </div>
+                <h3 data-i18n="backendTitle">Backend</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="skill-tag">C#</span>
+                <span class="skill-tag">.NET Core</span>
+                <span class="skill-tag">Entity Framework</span>
+                <span class="skill-tag">LINQ</span>
+                <span class="skill-tag">SignalR</span>
+                <span class="skill-tag">RESTful APIs</span>
+                <span class="skill-tag">ASP.NET Core MVC</span>
+              </div>
+            </div>
+
+            <!-- Frontend -->
+            <div class="skill-category">
+              <div class="category-header">
+                <div class="category-icon frontend">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.94-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"
+                    />
+                  </svg>
+                </div>
+                <h3 data-i18n="frontendTitle">Frontend</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="skill-tag">HTML</span>
+                <span class="skill-tag">CSS/SCSS</span>
+                <span class="skill-tag">Bootstrap</span>
+                <span class="skill-tag">jQuery</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Angular</span>
+                <span class="skill-tag">TypeScript</span>
+                <span class="skill-tag">RxJS</span>
+              </div>
+            </div>
+
+            <!-- Database & Cloud -->
+            <div class="skill-category">
+              <div class="category-header">
+                <div class="category-icon database">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zM4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4s-8-1.79-8-4zm0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4z"
+                    />
+                  </svg>
+                </div>
+                <h3 data-i18n="databaseTitle">Database & Cloud</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="skill-tag">SQL Server</span>
+                <span class="skill-tag">SQLite</span>
+                <span class="skill-tag">Redis</span>
+                <span class="skill-tag">Azure</span>
+              </div>
+            </div>
+
+            <!-- Architecture -->
+            <div class="skill-category">
+              <div class="category-header">
+                <div class="category-icon architecture">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"
+                    />
+                  </svg>
+                </div>
+                <h3 data-i18n="architectureTitle">Architecture</h3>
+              </div>
+              <div class="skills-tags">
+                <span class="skill-tag">Clean Architecture</span>
+                <span class="skill-tag">Repository Pattern</span>
+                <span class="skill-tag">Specification Pattern</span>
+                <span class="skill-tag">CQRS Principles</span>
+                <span class="skill-tag">SOLID</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Projects Section ===== -->
+    <section class="projects" id="projects">
+      <div class="projects-container">
+        <div class="projects-header">
+          <h2 class="projects-title" data-i18n="projectsTitle">
+            Featured Projects
+          </h2>
+          <div class="title-underline"></div>
+          <p class="projects-subtitle" data-i18n="projectsSubtitle">
+            Some of my recent work that showcases my skills
+          </p>
+        </div>
+
+        <!-- Projects Filter -->
+        <div class="projects-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter=".net">.NET Core</button>
+          <button class="filter-btn" data-filter="angular">Angular</button>
+          <button class="filter-btn" data-filter="mvc">MVC</button>
+          <button class="filter-btn" data-filter="api">API</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid">
+          <!-- Project 1: Smart Store -->
+          <div class="project-card mix .net mvc" data-category=".net mvc">
+            <div class="project-image">
+              <img
+                src="Images/Home.jpeg"
+                alt="Smart Store"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <button
+                  class="project-demo-btn"
+                  onclick="openProjectModal('smart-store')"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                  View Details
+                </button>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Smart Store</h3>
+              <p class="project-description" data-i18n="smartStoreDesc">
+                E-commerce platform with inventory management and customer
+                analytics
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">.NET Core</span>
+                <span class="tech-tag">MVC</span>
+                <span class="tech-tag">SQL Server</span>
+                <span class="tech-tag">Bootstrap</span>
+              </div>
+              <div class="project-actions">
+                <a
+                  href="https://youtu.be/_wnARJr9ryA?si=c0wEWdegxt-yf73B"
+                  target="_blank"
+                  class="project-link demo"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Markets Economics -->
+          <div
+            class="project-card mix .net angular api"
+            data-category=".net angular api"
+          >
+            <div class="project-image">
+              <img
+                src="Images/Screenshot_6-6-2025_15261_localhost.jpeg"
+                alt="Markets Economics"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <button
+                  class="project-demo-btn"
+                  onclick="openProjectModal('markets-economics')"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                  View Details
+                </button>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Markets Economics</h3>
+              <p class="project-description" data-i18n="marketsEconomicsDesc">
+                Financial markets analysis platform with real-time data
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">.NET Core</span>
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Web API</span>
+                <span class="tech-tag">TypeScript</span>
+              </div>
+              <div class="project-actions">
+                <a
+                  href="https://youtu.be/8rrD-P4fI4U?si=Qn9r7n6GWlzMM8iF"
+                  target="_blank"
+                  class="project-link demo"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Dar Elite -->
+          <div
+            class="project-card mix .net angular api"
+            data-category=".net angular api"
+          >
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400&q=80"
+                alt="Dar Elite"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <button
+                  class="project-demo-btn"
+                  onclick="openProjectModal('dar-elite')"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                  View Details
+                </button>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Dar Elite</h3>
+              <p class="project-description" data-i18n="darEliteDesc">
+                Furniture e-commerce with modern design and payment integration
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">.NET Core</span>
+                <span class="tech-tag">Angular</span>
+                <span class="tech-tag">Web API</span>
+                <span class="tech-tag">Entity Framework</span>
+              </div>
+              <div class="project-actions">
+                <a
+                  href="https://github.com/islamaymanweb/DarElite-API"
+                  target="_blank"
+                  class="project-link code"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"
+                    />
+                  </svg>
+                  Source Code
+                </a>
+                <a
+                  href="#"
+                  class="project-link demo"
+                  onclick="openProjectModal('dar-elite')"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Elite Haven -->
+          <div class="project-card mix .net mvc" data-category=".net mvc">
+            <div class="project-image">
+              <img
+                src="Images/home (1).jpeg"
+                alt="Elite Haven"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <button
+                  class="project-demo-btn"
+                  onclick="openProjectModal('elite-haven')"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                  View Details
+                </button>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Elite Haven</h3>
+              <p class="project-description" data-i18n="eliteHavenDesc">
+                Real estate platform with property management system
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">.NET Core</span>
+                <span class="tech-tag">MVC</span>
+                <span class="tech-tag">SQL Server</span>
+                <span class="tech-tag">JavaScript</span>
+              </div>
+              <div class="project-actions">
+                <a
+                  href="https://youtu.be/dzzbOT7eqWc?si=CuBKxj2eZ3IyqjCP"
+                  target="_blank"
+                  class="project-link demo"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Book Store -->
+          <div class="project-card mix .net mvc" data-category=".net mvc">
+            <div class="project-image">
+              <img
+                src="Images/BookStore.jpeg"
+                alt="Book Store"
+                class="project-img"
+              />
+              <div class="project-overlay">
+                <button
+                  class="project-demo-btn"
+                  onclick="openProjectModal('book-store')"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path
+                      d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+                    />
+                  </svg>
+                  View Details
+                </button>
+              </div>
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Book Store</h3>
+              <p class="project-description" data-i18n="bookStoreDesc">
+                Online bookstore with inventory and order management
+              </p>
+              <div class="project-tech">
+                <span class="tech-tag">.NET Core</span>
+                <span class="tech-tag">MVC</span>
+                <span class="tech-tag">Entity Framework</span>
+                <span class="tech-tag">Bootstrap</span>
+              </div>
+              <div class="project-actions">
+                <a
+                  href="https://youtu.be/xeJFAqHtSyY?si=oGibHnkDqJVZRkn8"
+                  target="_blank"
+                  class="project-link demo"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  Live Demo
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ===== Services Section ===== -->
+    <section class="services" id="services">
+      <div class="services-container">
+        <div class="services-header">
+          <h2 class="services-title" data-i18n="servicesTitle">My Services</h2>
+          <div class="title-underline"></div>
+          <p class="services-subtitle" data-i18n="servicesSubtitle">
+            Comprehensive solutions to bring your digital vision to life
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Service 1: Web App Development -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 17.5c-1.4 0-2.5-1.1-2.5-2.5s1.1-2.5 2.5-2.5 2.5 1.1 2.5 2.5-1.1 2.5-2.5 2.5zM21 7H3V5h18v2z"
+                />
+              </svg>
+            </div>
+            <h3 class="service-title" data-i18n="service1Title">
+              Custom Web Applications
+            </h3>
+            <p class="service-description" data-i18n="service1Description">
+              Design and development of professional custom web applications
+              that precisely meet your business needs, using .NET Core and
+              Angular to deliver high performance, strong security, and smooth
+              user experience.
+            </p>
+            <div class="service-result">
+              <span class="result-icon">💼</span>
+              <span class="result-text" data-i18n="service1Result"
+                >Result: A smart system that helps you manage your business
+                efficiently and develop your internal operations.</span
+              >
+            </div>
+            <div class="service-tech">
+              <span class="tech-pill">.NET Core</span>
+              <span class="tech-pill">Angular</span>
+              <span class="tech-pill">SQL Server</span>
+            </div>
+          </div>
+
+          <!-- Service 2: E-commerce -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"
+                />
+              </svg>
+            </div>
+            <h3 class="service-title" data-i18n="service2Title">
+              E-commerce & Business Platforms
+            </h3>
+            <p class="service-description" data-i18n="service2Description">
+              Creation of complete e-commerce stores and business management
+              systems with modern interfaces and secure electronic payment
+              (Stripe / PayPal), with an easy control panel for managing
+              products and sales.
+            </p>
+            <div class="service-result">
+              <span class="result-icon">🛒</span>
+              <span class="result-text" data-i18n="service2Result"
+                >Result: Increased sales and building a strong digital presence
+                for your brand.</span
+              >
+            </div>
+            <div class="service-tech">
+              <span class="tech-pill">Payment APIs</span>
+              <span class="tech-pill">Inventory Management</span>
+              <span class="tech-pill">Admin Dashboard</span>
+            </div>
+          </div>
+
+          <!-- Service 3: API & Integration -->
+          <div class="service-card">
+            <div class="service-icon">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path
+                  d="M4 6h18V4H4c-1.1 0-2 .9-2 2v11H0v3h14v-3H4V6zm19 2h-6c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h6c.55 0 1-.45 1-1V9c0-.55-.45-1-1-1zm-1 9h-4v-7h4v7z"
+                />
+              </svg>
+            </div>
+            <h3 class="service-title" data-i18n="service3Title">
+              API & System Integration
+            </h3>
+            <p class="service-description" data-i18n="service3Description">
+              Development of secure and fast APIs to connect your company's
+              different systems or integrate external services such as payment,
+              email, and performance analytics.
+            </p>
+            <div class="service-result">
+              <span class="result-icon">🔗</span>
+              <span class="result-text" data-i18n="service3Result"
+                >Result: Greater flexibility and effective connection between
+                your tools and services.</span
+              >
+            </div>
+            <div class="service-tech">
+              <span class="tech-pill">RESTful APIs</span>
+              <span class="tech-pill">System Integration</span>
+              <span class="tech-pill">Third-party APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="services-cta">
+          <div class="cta-content">
+            <h3 class="cta-title" data-i18n="ctaTitle">
+              Ready to Start Your Project?
+            </h3>
+            <p class="cta-description" data-i18n="ctaDescription">
+              Let's discuss how we can transform your ideas into powerful
+              digital solutions.
+            </p>
+            <button class="btn btn-primary" onclick="scrollToContact()">
+              <span class="btn-content">
+                <svg
+                  class="btn-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                <span data-i18n="ctaButton">Get In Touch</span>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Project Modals -->
+    <div id="project-modal" class="project-modal">
+      <div class="modal-content">
+        <button class="modal-close" onclick="closeProjectModal()">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
+          </svg>
+        </button>
+        <div class="modal-body">
+          <!-- Content will be loaded dynamically -->
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== Contact Section ===== -->
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <div class="contact-header">
+          <h2 class="contact-title" data-i18n="contactTitle">Get In Touch</h2>
+          <div class="title-underline"></div>
+          <p class="contact-subtitle" data-i18n="contactSubtitle">
+            Let's discuss your next project and bring your ideas to life
+          </p>
+        </div>
+
+        <div class="contact-content">
+          <!-- Contact Information -->
+          <div class="contact-info">
+            <div class="info-card glass-morphism">
+              <h3 class="info-title" data-i18n="infoTitle">Let's Talk</h3>
+              <p class="info-description" data-i18n="infoDescription">
+                I'm always interested in new challenges and opportunities.
+                Whether you have a project in mind or just want to say hello,
+                I'd love to hear from you!
+              </p>
+
+              <div class="contact-details">
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="contact-text">
+                    <h4 data-i18n="emailTitle">Email</h4>
+                    <p>islamwebdevelopment@gmail.com</p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="contact-text">
+                    <h4 data-i18n="phoneTitle">Phone</h4>
+                    <p>+20 1032811214</p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                      />
+                    </svg>
+                  </div>
+                  <div class="contact-text">
+                    <h4 data-i18n="locationTitle">Location</h4>
+                    <p data-i18n="locationValue">Mansoura, Egypt</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Social Media Links -->
+              <div class="contact-social">
+                <h4 data-i18n="followTitle">Follow Me</h4>
+                <div class="social-links">
+                  <a
+                    href="https://www.linkedin.com/in/islam-ayman-2406a2277/"
+                    target="_blank"
+                    class="social-link"
+                    aria-label="LinkedIn"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                      />
+                    </svg>
+                  </a>
+
+                  <a
+                    href="https://github.com/islamaymanweb"
+                    target="_blank"
+                    class="social-link"
+                    aria-label="GitHub"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                      />
+                    </svg>
+                  </a>
+
+                  <a
+                    href="https://youtu.be/_wnARJr9ryA?si=-dof-XrhBBsaEJQM"
+                    target="_blank"
+                    class="social-link"
+                    aria-label="YouTube"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                      />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form-container">
+            <form
+              class="contact-form"
+              action="https://formsubmit.co/islamayman952htk1ta2@gmail.com"
+              method="POST"
+            >
+              <!-- Hidden Fields -->
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input
+                type="hidden"
+                name="_next"
+                value="https://yourwebsite.com/thank-you.html"
+              />
+
+              <div class="form-group">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
+                <span class="focus-border"></span>
+                <div class="wave-effect"></div>
+              </div>
+
+              <div class="form-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
+                <span class="focus-border"></span>
+                <div class="wave-effect"></div>
+              </div>
+
+              <div class="form-group">
+                <input type="text" name="subject" placeholder="Subject" />
+                <span class="focus-border"></span>
+                <div class="wave-effect"></div>
+              </div>
+
+              <div class="form-group">
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  rows="5"
+                  required
+                ></textarea>
+                <span class="focus-border"></span>
+                <div class="wave-effect"></div>
+              </div>
+
+              <button type="submit" class="submit-btn">
+                <span class="btn-text" data-i18n="sendMessage"
+                  >Send Message</span
+                >
+                <div class="btn-loader">
+                  <div class="loader-dot"></div>
+                  <div class="loader-dot"></div>
+                  <div class="loader-dot"></div>
+                </div>
+                <svg
+                  class="btn-icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" />
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Floating Background Elements -->
+      <div class="contact-bg-element element-1"></div>
+      <div class="contact-bg-element element-2"></div>
+      <div class="contact-bg-element element-3"></div>
+    </section>
+    <!-- ===== FOOTER SECTION ===== -->
+    <footer class="footer">
+      <div id="particles-footer"></div>
+
+      <div class="footer-content">
+        <div class="footer-grid">
+          <!-- About Section -->
+          <div class="footer-about">
+            <div class="footer-logo">
+              <span class="footer-logo-brackets">&lt;</span>
+              <span class="footer-logo-text">Islam</span>
+              <span class="footer-logo-brackets">/&gt;</span>
+            </div>
+            <p class="footer-description">
+              Passionate Full Stack Developer specializing in building
+              exceptional digital experiences. Transforming ideas into elegant,
+              scalable solutions using cutting-edge technologies.
+            </p>
+            <div class="footer-tech-stack">
+              <span class="tech-badge">.NET Core</span>
+              <span class="tech-badge">Angular</span>
+              <span class="tech-badge">C#</span>
+              <span class="tech-badge">TypeScript</span>
+              <span class="tech-badge">SQL Server</span>
+            </div>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-links">
+            <h3 class="footer-title">Quick Links</h3>
+            <ul class="footer-link-list">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Me</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="footer-contact">
+            <h3 class="footer-title">Get in Touch</h3>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  width="20"
+                  height="20"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div
+                  style="
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    margin-bottom: 0.2rem;
+                  "
+                >
+                  Email
+                </div>
+                <div>islamwebdevelopment@gmail.com</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  width="20"
+                  height="20"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div
+                  style="
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    margin-bottom: 0.2rem;
+                  "
+                >
+                  Phone
+                </div>
+                <div>+20 1032811214</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  width="20"
+                  height="20"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <div
+                  style="
+                    font-weight: 600;
+                    color: var(--text-primary);
+                    margin-bottom: 0.2rem;
+                  "
+                >
+                  Location
+                </div>
+                <div>Mansoura, Egypt</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="footer-social">
+            <h3 class="footer-title">Follow Me</h3>
+            <p class="footer-description">
+              Let's connect and build something amazing together!
+            </p>
+            <div class="social-links">
+              <a
+                href="https://github.com/islamaymanweb/"
+                target="_blank"
+                rel="noopener"
+                class="social-link"
+                aria-label="GitHub"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/islam-ayman-2406a2277/"
+                target="_blank"
+                rel="noopener"
+                class="social-link"
+                aria-label="LinkedIn"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                  />
+                </svg>
+              </a>
+
+              <a
+                href="https://www.youtube.com/@IslamAyman-tv6pv"
+                target="_blank"
+                rel="noopener"
+                class="social-link"
+                aria-label="YouTube"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            &copy; 2025 <strong>Islam Ayman </strong>. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 10l7-7m0 0l7 7m-7-7v18"
+        />
+      </svg>
+    </button>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Particles.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.1/mixitup.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+</html>
