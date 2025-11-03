@@ -1278,7 +1278,7 @@ function initContactAnimations() {
   });
 }
 
-// Form Validation and Submission
+ // Form Validation and Submission
 function initContactForm() {
   const contactForm = document.querySelector('.contact-form');
   const submitBtn = contactForm.querySelector('.submit-btn');
@@ -1291,28 +1291,8 @@ function initContactForm() {
       return;
     }
     
-    // Show loading state
-    submitBtn.classList.add('loading');
-    
-    // Simulate form submission (replace with actual AJAX call)
-    setTimeout(() => {
-      submitBtn.classList.remove('loading');
-      submitBtn.classList.add('success');
-      
-      // Update button text
-      const btnText = submitBtn.querySelector('.btn-text');
-      btnText.textContent = 'Message Sent!';
-      
-      // Reset form
-      contactForm.reset();
-      
-      // Reset button after 3 seconds
-      setTimeout(() => {
-        submitBtn.classList.remove('success');
-        btnText.textContent = getTranslation('sendMessage');
-      }, 3000);
-      
-    }, 2000);
+    // إرسال النموذج
+    submitForm();
   });
   
   // Real-time validation
@@ -1328,6 +1308,75 @@ function initContactForm() {
   });
 }
 
+// دالة إرسال النموذج الفعلية
+function submitForm() {
+  const form = document.querySelector('.contact-form');
+  const submitBtn = form.querySelector('.submit-btn');
+  const btnText = submitBtn.querySelector('.btn-text');
+
+  // Show loading state
+  submitBtn.classList.add('loading');
+  submitBtn.disabled = true;
+  btnText.textContent = 'Sending...';
+
+  // إنشاء FormData من النموذج
+  const formData = new FormData(form);
+
+  // إرسال البيانات إلى FormSubmit باستخدام fetch
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      // النجاح - بدون توجيه
+      showSuccessMessage(submitBtn, btnText);
+      form.reset();
+      
+      // يمكنك إضافة أي إجراء إضافي هنا بعد الإرسال الناجح
+      console.log('Form submitted successfully!');
+      
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  })
+  .catch(error => {
+    // في حالة الخطأ
+    showErrorMessage(submitBtn, btnText);
+    console.error('Error submitting form:', error);
+  });
+}
+
+function showSuccessMessage(submitBtn, btnText) {
+  submitBtn.classList.remove('loading');
+  submitBtn.classList.add('success');
+  btnText.textContent = 'Message Sent Successfully!';
+  
+  // إعادة تعيين الزر بعد 4 ثواني
+  setTimeout(() => {
+    submitBtn.classList.remove('success');
+    submitBtn.disabled = false;
+    btnText.textContent = getTranslation('sendMessage');
+  }, 4000);
+}
+
+function showErrorMessage(submitBtn, btnText) {
+  submitBtn.classList.remove('loading');
+  submitBtn.classList.add('error');
+  btnText.textContent = 'Failed to Send! Try Again';
+  submitBtn.disabled = false;
+  
+  // إعادة تعيين الزر بعد 3 ثواني
+  setTimeout(() => {
+    submitBtn.classList.remove('error');
+    btnText.textContent = getTranslation('sendMessage');
+  }, 3000);
+}
+
+// باقي دوال التحقق كما هي
 function validateForm() {
   const form = document.querySelector('.contact-form');
   const inputs = form.querySelectorAll('input[required], textarea[required]');
@@ -1346,16 +1395,13 @@ function validateField(field) {
   const value = field.value.trim();
   let isValid = true;
   
-  // Clear previous error
   clearFieldError(field);
   
-  // Required field validation
   if (field.hasAttribute('required') && !value) {
     showFieldError(field, 'This field is required');
     isValid = false;
   }
   
-  // Email validation
   if (field.type === 'email' && value) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(value)) {
@@ -1364,13 +1410,11 @@ function validateField(field) {
     }
   }
   
-  // Name validation (minimum 2 characters)
   if (field.name === 'name' && value && value.length < 2) {
     showFieldError(field, 'Name must be at least 2 characters long');
     isValid = false;
   }
   
-  // Message validation (minimum 10 characters)
   if (field.name === 'message' && value && value.length < 10) {
     showFieldError(field, 'Message must be at least 10 characters long');
     isValid = false;
@@ -1386,7 +1430,6 @@ function validateField(field) {
 function showFieldError(field, message) {
   field.style.borderColor = 'var(--error-color)';
   
-  // Create error message element
   let errorElement = field.parentNode.querySelector('.error-message');
   if (!errorElement) {
     errorElement = document.createElement('div');
@@ -1403,18 +1446,17 @@ function showFieldError(field, message) {
 
 function clearFieldError(field) {
   field.style.borderColor = '';
-  
   const errorElement = field.parentNode.querySelector('.error-message');
   if (errorElement) {
     errorElement.remove();
   }
 }
 
-// Helper function to get translation
 function getTranslation(key) {
   const t = translations[currentLanguage];
   return t[key] || key;
 }
+ 
 
 // Add to DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -1422,4 +1464,5 @@ document.addEventListener('DOMContentLoaded', function() {
   
   initContactAnimations();
   initContactForm();
+
 });
