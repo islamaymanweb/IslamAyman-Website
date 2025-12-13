@@ -1,5 +1,4 @@
- 
-// ===== Dark Mode Functionality =====
+  
 function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute("data-theme");
   const newTheme = currentTheme === "dark" ? "light" : "dark";
@@ -17,8 +16,7 @@ function toggleTheme() {
       '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />';
   }
 }
-
-// ===== Translation System =====
+ 
 const translations = {
   en: {
     // Navigation
@@ -317,7 +315,29 @@ function updateLanguage() {
       element.textContent = t[key];
     }
   });
+ 
+  document.querySelectorAll(".mobile-nav-link").forEach((link, index) => {
+    const keys = [
+      "home",
+      "about",
+      "skills",
+      "projects",
+      "services",
+      "contact",
+    ];
+    if (keys[index]) {
+     
+      const span = link.querySelector("span");
+      if (span) {
+        span.textContent = t[keys[index]];
+      } else {
+        
+        link.textContent = t[keys[index]];
+      }
+    }
+  });
 
+ 
   // Update footer sections
   const footerTitles = document.querySelectorAll(".footer-title");
   footerTitles.forEach((title, index) => {
@@ -545,7 +565,7 @@ function handleScrollTopButton() {
 // ===== Active Link Highlighting =====
 function setActiveLink() {
   const sections = document.querySelectorAll("section");
-  const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-link");
+  const navLinks = document.querySelectorAll(".nav-link, .mobile-nav-links");
 
   let currentSection = "";
 
@@ -776,11 +796,9 @@ document.addEventListener("DOMContentLoaded", function () {
   initializeLanguage();
   initParticles();
   animateFooter();
-  
-  // Set initial typing texts
+ 
   window.typingTexts = translations[currentLanguage].typingTexts;
-  
-  // Initialize hero animations after language is set
+ 
   setTimeout(initHeroAnimations, 500);
 
   // Event listeners for buttons
@@ -831,17 +849,13 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-// جعل typing texts متاح globally للترجمة
+ 
 window.typingTexts = null;
-///////////////////////////////////////////////////////////////////
-// أضف هذه الدوال في ملف script.js:
-
-// About Section Animations
+ 
 function initAboutAnimations() {
   // Initialize counters
   initCounters();
-  
-  // Initialize scroll animations
+ 
   initScrollAnimations();
 }
 
@@ -905,14 +919,13 @@ function initScrollAnimations() {
   });
 }
 
-// Add to DOMContentLoaded
+ 
 document.addEventListener('DOMContentLoaded', function() {
-  // ... الكود الحالي ...
-  
+ 
   initAboutAnimations(); // Add this line
 });
 
-// أضف هذه الدوال في ملف script.js:
+ 
 
 // Skills Section Animations
 function initSkillsAnimations() {
@@ -985,24 +998,21 @@ function initSkillHoverEffects() {
   skillItems.forEach(item => {
     item.addEventListener('mouseenter', function() {
       const skillName = this.getAttribute('data-skill');
-      // يمكنك إضافة تأثيرات إضافية هنا
+       
     });
     
     item.addEventListener('mouseleave', function() {
-      // إعادة التعيين إذا لزم الأمر
+      
     });
   });
 }
-
-// Add to DOMContentLoaded
+ 
 document.addEventListener('DOMContentLoaded', function() {
-  // ... الكود الحالي ...
+ 
   
-  initSkillsAnimations(); // Add this line
+  initSkillsAnimations();  
 });
-//////////////////////////////////////////////////////////////////////////////////////////
-// Projects Section Functionality
- // Projects Section Functionality
+ 
 function initProjects() {
   initProjectsFilter();
   initProjectsAnimation();
@@ -1015,9 +1025,9 @@ function initProjectsFilter() {
 
   filterBtns.forEach(btn => {
     btn.addEventListener('click', function() {
-      // Remove active class from all buttons
+      
       filterBtns.forEach(b => b.classList.remove('active'));
-      // Add active class to clicked button
+     
       this.classList.add('active');
       
       const filterValue = this.getAttribute('data-filter');
@@ -1189,10 +1199,9 @@ function closeProjectModal() {
   modal.classList.remove('active');
   document.body.style.overflow = '';
 }
-
-// Add to DOMContentLoaded
+ 
 document.addEventListener('DOMContentLoaded', function() {
-  // ... الكود الحالي ...
+ 
   
   initProjects(); // Add this line
 });
@@ -1236,19 +1245,18 @@ function initServicesAnimations() {
 
 // Add to DOMContentLoaded
 document.addEventListener('DOMContentLoaded', function() {
-  // ... الكود الحالي ...
+ 
   
   initServicesAnimations(); // Add this line
 });
-
-// Scroll to Contact function
+ 
 function scrollToContact() {
   const contactSection = document.getElementById('contact');
   if (contactSection) {
     contactSection.scrollIntoView({ behavior: 'smooth' });
   }
 }
-// Contact Section Animations
+ 
 function initContactAnimations() {
   const contactElements = document.querySelectorAll(
     '.contact-title, .contact-subtitle, .info-card, .contact-form'
@@ -1290,8 +1298,7 @@ function initContactForm() {
     if (!validateForm()) {
       return;
     }
-    
-    // إرسال النموذج
+     
     submitForm();
   });
   
@@ -1307,8 +1314,7 @@ function initContactForm() {
     });
   });
 }
-
-// دالة إرسال النموذج الفعلية
+ 
 function submitForm() {
   const form = document.querySelector('.contact-form');
   const submitBtn = form.querySelector('.submit-btn');
@@ -1319,10 +1325,9 @@ function submitForm() {
   submitBtn.disabled = true;
   btnText.textContent = 'Sending...';
 
-  // إنشاء FormData من النموذج
+ 
   const formData = new FormData(form);
-
-  // إرسال البيانات إلى FormSubmit باستخدام fetch
+ 
   fetch(form.action, {
     method: 'POST',
     body: formData,
@@ -1457,12 +1462,11 @@ function getTranslation(key) {
   return t[key] || key;
 }
  
-
-// Add to DOMContentLoaded
+ 
 document.addEventListener('DOMContentLoaded', function() {
-  // ... الكود الحالي ...
-  
+ 
   initContactAnimations();
   initContactForm();
 
 });
+
