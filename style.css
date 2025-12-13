@@ -1,4 +1,4 @@
-/* ===== CSS Variables ===== */
+ /* ===== CSS Variables ===== */
 :root {
   --primary-color: #2563eb;
   --primary-dark: #1d4ed8;
@@ -456,6 +456,7 @@ body {
   background: var(--text-primary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 2px;
+  left: 2px;
 }
 
 .hamburger::before {
@@ -484,6 +485,7 @@ body {
   top: 0;
   transform: rotate(-45deg);
   background: white;
+ margin-right: 5px;
 }
 
 .mobile-menu {
